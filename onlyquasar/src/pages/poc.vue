@@ -7,24 +7,28 @@
     </div>
     </div>-->
 <div>
-    <text-box :name="schema.name" v-model="schema.value" :placeholder="schema.placeholder" :value.sync="schema.value" ></text-box>
-    <text-box :name="schema2.name" v-model="schema2.value" :placeholder="schema2.placeholder" :value.sync="schema2.value" ></text-box>
+    <text-box-biz :schema="schema"></text-box-biz>
+    <!-- <text-box :name="schema2.name" v-model="schema2.value" :placeholder="schema2.placeholder" :data.sync="schema2.value"
+    :maxlength="schema2.maxLength"
+    ></text-box> -->
     <input type="button" @click="test" value="test"/>
 </div>
 
   </q-page>
  </template>
 <script>
+import textBoxBiz from "../controls/formBuilder/text-box-biz"
 import TextBox from "../controls/formBuilder/text-box";
 export default {
   components:{
-    textBox: TextBox
+    textBox: TextBox,
+    textBoxBiz:textBoxBiz
   },
   data() {
     return {
       text: "Hello world",
-      schema:{name:'txt1', value:'test', placeholder:'here is fun'},
-      schema2:{name:'txt2', value:'test2', placeholder:'here is fun2'}
+      schema:{name:'txt1', value:'test', placeholder:'here is fun', readonly:false, maxLength:"5", minLength:"2", required:true},
+      schema2:{name:'txt2', value:'test2', placeholder:'here is fun2',readonly:false, maxLength:"5", minLength:"2", required:false}
     };
   },
   methods:{
