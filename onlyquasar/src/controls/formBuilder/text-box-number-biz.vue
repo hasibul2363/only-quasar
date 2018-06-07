@@ -1,25 +1,25 @@
 <template>
 <div>
    <label> {{schema.label}}</label>
-  <text-box
+  <text-box-number
   :name="schema.name"
   :placeholder="schema.placeholder"
-  :maxLength="schema.maxLength"
-  :minLength="schema.minLength"
+  :max="schema.maxValue"
+  :min="schema.minValue"
   :readonly="schema.readonly"
   :required="schema.required"
   :value="schema.value"
   :data.sync="schema.value">
-  </text-box>
+  </text-box-number>
 </div>
 </template>
 
 <script>
-import textBox from "./text-box";
+import textBoxNumber from "./text-box-number";
 export default {
   props: ["schema"],
   components: {
-    textBox: textBox
+    textBoxNumber: textBoxNumber
   }
 };
 </script>

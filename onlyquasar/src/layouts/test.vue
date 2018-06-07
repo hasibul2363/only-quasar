@@ -53,11 +53,10 @@ export default {
 </script>
 
 <style>
-.form-content-lg {
+/*.form-content-lg {
   margin-top: -100px;
 }
 .form-content-xs {
   margin-top: -150px;
-
-}
+}*/
 </style>

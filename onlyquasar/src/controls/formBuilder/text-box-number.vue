@@ -2,12 +2,12 @@
 
 
   <input
-   type="text"
+   type="number"
    id="name"
    name="name"
    :placeholder="placeholder"
-   maxlength="maxlength"
-   minlength="minlength"
+   :max="max"
+   :min="min"
    :readonly="readonly"
    :required="required"
   :value="value"
@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-  props: ["name", "value", "placeholder", "minlength", "maxlength", "required", "readonly"],
+  props: ["name", "value", "placeholder", "min", "max", "required", "readonly"],
   methods:{
     raiseChangeEvent(event){
       this.$emit('update:data',event.target.value);
