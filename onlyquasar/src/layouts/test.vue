@@ -1,5 +1,5 @@
 <template>
-  <q-layout >
+  <q-layout>
     <!-- <q-layout-header>
       <q-toolbar color="primary">
         <q-btn
@@ -20,7 +20,7 @@
       </q-toolbar>
     </q-layout-header> -->
 
-    <q-page-container>
+    <q-page-container >
       <div style="background-color: whitesmoke">
         <div style="height:200px;" class="bg-primary"></div>
         <div class="xs form-content-xs">
