@@ -23,27 +23,33 @@ export default {
     getControlsFromExpression() {
       return ["txt2"];
     },
-    reInitValue() {}
+    reInitValue() {
+      var expression = this.schema.formulaTemplate;
+      var controlNames = this.getControlsFromExpression();
+      controlNames.forEach(element => {
+        expression = expression.replace(
+          "{" + element + "}",
+          this.formschema.value
+        );
+        this.schema.value = eval(expression);
+      });
+    }
   },
   mounted() {
     var controlsNeedToWatch = ["txt2"];
+    this.reInitValue();
+    this.$watch("formschema.value", this. reInitValue/*function() {
       var expression = this.schema.formulaTemplate;
       var controlNames = this.getControlsFromExpression();
       controlNames.forEach(element => {
-        expression = expression.replace("{" + element + "}",      this.formschema.value        );
+        expression = expression.replace(
+          "{" + element + "}",
+          this.formschema.value
+        );
         this.schema.value = eval(expression);
       });
-
-
-    this.$watch("formschema.value", function() {
-      var expression = this.schema.formulaTemplate;
-      var controlNames = this.getControlsFromExpression();
-      controlNames.forEach(element => {
-        expression = expression.replace("{" + element + "}",      this.formschema.value        );
-        this.schema.value = eval(expression);
-      });
-    });
-  }/*,
+    }*/);
+  } /*,
   data() {
     return {
       formschema1: this.formschema
