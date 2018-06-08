@@ -29,7 +29,7 @@ export default {
       controlNames.forEach(element => {
         expression = expression.replace(
           "{" + element + "}",
-          this.formschema.value
+          this.formschema["txt2"].value
         );
         this.schema.value = eval(expression);
       });
@@ -38,7 +38,7 @@ export default {
   mounted() {
     var controlsNeedToWatch = ["txt2"];
     this.reInitValue();
-    this.$watch("formschema.value", this. reInitValue/*function() {
+    this.$watch("formschema.txt2.value", this. reInitValue/*function() {
       var expression = this.schema.formulaTemplate;
       var controlNames = this.getControlsFromExpression();
       controlNames.forEach(element => {
